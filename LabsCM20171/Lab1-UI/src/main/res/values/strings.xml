@@ -1,3 +1,25 @@
 <resources>
+
     <string name="app_name">LabsCM20171</string>
+
+
+    <!--Strings usados en el Activity PersonalInfo-->
+
+    <string name="nombres">Nombres</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="sexo">Sexo</string>
+    <string name="hombre">Hombre</string>
+    <string name="mujer">Mujer</string>
+    <string name="fechaNaci">Fecha de Nacimiento</string>
+    <string name="cambiar">Cambiar</string>
+    <string name="gradoEscol">Grado de Escolaridad</string>
+    <string-array name="listaGradosEscolaridad">
+        <item>Grado de Escolaridad</item>
+        <item>Primaria</item>
+        <item>Secundaria</item>
+        <item>Universidad</item>
+        <item>Otro</item>
+    </string-array>
+    <string name="siguiente">Siguiente</string>
+
 </resources>
