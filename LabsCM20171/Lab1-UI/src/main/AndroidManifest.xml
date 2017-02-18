@@ -10,8 +10,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.PersonalInfo"
-            android:windowSoftInputMode="adjustPan"
-            android:label="Información Personal" >
+            android:label="Información Personal"
+            android:windowSoftInputMode="adjustPan">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,9 +19,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ContactInfo"
+        <activity
+            android:name=".activity.ContactInfo"
             android:label="Información de Contacto" />
-        <activity android:name=".activity.OtherInfo"></activity>
+        <activity
+            android:name=".activity.OtherInfo"
+            android:label="Información Complementaria"
+            android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>
