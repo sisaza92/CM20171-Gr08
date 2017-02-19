@@ -17,7 +17,7 @@
         </activity>
         <activity
             android:name=".ContactInfo"
-            android:windowSoftInputMode="stateVisible|adjustResize" />
+            android:windowSoftInputMode="adjustPan"  android:label="@string/info_de_contacto"/>
         <activity android:name=".OtherInfo"></activity>
     </application>
 

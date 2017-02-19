@@ -93,12 +93,10 @@
 
     <Button
         android:text="@string/siguiente"
-        android:layout_width="match_parent"
+        android:layout_width="168dp"
         android:layout_height="wrap_content"
         android:id="@+id/SiguienteInfoContact"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-         />
+        android:layout_gravity="right"/>
 
 
 </LinearLayout>
