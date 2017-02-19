@@ -15,7 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ContactInfo" />
+        <activity
+            android:name=".ContactInfo"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity android:name=".OtherInfo"></activity>
     </application>
 
