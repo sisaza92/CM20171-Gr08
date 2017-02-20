@@ -15,11 +15,9 @@
         android:id="@+id/infoContact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_marginTop="2dp"
-        android:text="Información de Contacto"
+        android:textAlignment="center"
+        android:text="@string/info_de_contacto"
         android:textSize="25dp" />
 
 
@@ -96,7 +94,8 @@
         android:layout_width="168dp"
         android:layout_height="wrap_content"
         android:id="@+id/SiguienteInfoContact"
-        android:layout_gravity="right"/>
+        android:layout_gravity="right"
+        android:onClick="onClick"/>
 
 
 </LinearLayout>
