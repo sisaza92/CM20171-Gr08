@@ -1,14 +1,17 @@
 package co.edu.udea.compumovil.gr08_20171.lab1.activity;
 
-import android.app.DialogFragment;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+
+import java.util.Date;
 
 import co.edu.udea.compumovil.gr08_20171.lab1.util.DatePickerFragment;
 import co.edu.udea.compumovil.gr08_20171.lab1.R;
@@ -19,11 +22,12 @@ import co.edu.udea.compumovil.gr08_20171.lab1.R;
  * @date 17/02/2017
  * Esta clase Controla la vista de la actividad PersonalInfo.
  */
-public class PersonalInfo extends AppCompatActivity{
+public class PersonalInfo extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
     EditText input_nombres,input_apellidos;
     RadioGroup rgSexo;
     Spinner sprGradoEscolaridad;
+    Date fechaNaci;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +47,8 @@ public class PersonalInfo extends AppCompatActivity{
      * @param view parámetro requerido para llamar el método a travéz del onClick en el XML.
      */
     public void showDatePicker(View view){
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getFragmentManager(), "timePicker");
+        DatePickerFragment datePickerFragment = new DatePickerFragment();
+        datePickerFragment.show(getFragmentManager(), "timePicker");
     }
 
     /**
@@ -62,7 +66,7 @@ public class PersonalInfo extends AppCompatActivity{
 
         RadioButton rbChecked = (RadioButton) findViewById(rgSexo.getCheckedRadioButtonId());
         datos.putString("sexo", rbChecked.getText().toString());
-        //TODO: Agregar la fecha al Bundle.
+        datos.putString("fechaNaci",fechaNaci.toString());
         datos.putString("grado", sprGradoEscolaridad.getSelectedItem().toString());
 
         Intent otherInfo = new Intent(view.getContext(),ContactInfo.class);
@@ -71,4 +75,16 @@ public class PersonalInfo extends AppCompatActivity{
 
     }
 
+    /**
+     * Este método es activado justo después de haber seleccionado una
+     * fecha del cuadro de dialogo.
+     * @param view la actividad actual.
+     * @param year Año seleccionado.
+     * @param month Mes seleccionado.
+     * @param dayOfMonth Día seleccionado.
+     */
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        fechaNaci = new Date(year,month,dayOfMonth);
+    }
 }
