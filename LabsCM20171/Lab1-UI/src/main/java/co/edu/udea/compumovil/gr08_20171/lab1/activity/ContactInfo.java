@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.EditText;
 
 import co.edu.udea.compumovil.gr08_20171.lab1.R;
@@ -47,17 +48,41 @@ public class ContactInfo extends AppCompatActivity {
      */
     public void showNextActivity(View view){
 
-        Bundle datos = getIntent().getBundleExtra("datos");
+        if (validarCampos()){
+            Bundle datos = getIntent().getBundleExtra("datos");
 
-        datos.putString("telefono", telefonoInfoContact.getText().toString());
-        datos.putString("correo", correoInfoContact.getText().toString());
-        datos.putString("ciudad", autoCompleteCiudades.getText().toString());
-        datos.putString("pais", autoCompletePaises.toString());
-        datos.putString("direccion", direccionInfoContact.toString());
+            datos.putString("telefono", telefonoInfoContact.getText().toString());
+            datos.putString("correo", correoInfoContact.getText().toString());
+            datos.putString("ciudad", autoCompleteCiudades.getText().toString());
+            datos.putString("pais", autoCompletePaises.getText().toString());
+            datos.putString("direccion", direccionInfoContact.getText().toString());
 
-        Intent otherInfo = new Intent(view.getContext(),OtherInfo.class);
-        otherInfo.putExtra("datos",datos);
-        startActivity(otherInfo);
+            Intent otherInfo = new Intent(view.getContext(),OtherInfo.class);
+            otherInfo.putExtra("datos",datos);
+            startActivity(otherInfo);
+        }
 
+
+    }
+
+    /**
+     * Método para validar los campos de la actividad.
+     * @return true si la todos los campos se encuentran bien
+     * false de lo contrario.
+     */
+    private boolean validarCampos(){
+        if (telefonoInfoContact.getText().length() == 0){
+            telefonoInfoContact.setError(getString(R.string.error_telefono));
+            return false;
+        }
+        if(autoCompletePaises.getText().length() == 0){
+            autoCompletePaises.setError(getString(R.string.error_pais));
+            return false;
+        }
+        if(autoCompleteCiudades.getText().length() == 0){
+            autoCompleteCiudades.setError(getString(R.string.error_ciudad));
+            return false;
+        }
+        return true;
     }
 }
