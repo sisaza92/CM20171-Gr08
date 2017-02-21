@@ -23,6 +23,20 @@
     <string name="siguiente">Siguiente</string>
     <string name="info_personal">Información Personal</string>
 
+
+    <!--Strings usados en el Activity OtherInfo-->
+
+    <string name="pasatiempos">Pasatiempos:</string>
+    <string name="leer">Leer</string>
+    <string name="verTv">Ver Tv</string>
+    <string name="bailar">Bailar</string>
+    <string name="cantar">Cantar</string>
+    <string name="nadar">Nadar</string>
+    <string name="mostrar">Mostrar</string>
+    <string name="info_other">Información Complementaria</string>
+
+    <!--Strings usados en el Activity ContactInfo-->
+
     <string name="telefono">Teléfono</string>
     <string name="correo">Correo</string>
     <string name="pais">País</string>

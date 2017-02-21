@@ -21,7 +21,10 @@
         </activity>
         <activity android:name=".activity.ContactInfo"
             android:label="Información de Contacto" />
-        <activity android:name=".activity.OtherInfo"></activity>
+        <activity
+            android:name=".activity.OtherInfo"
+            android:label="@string/info_other"
+            android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>
