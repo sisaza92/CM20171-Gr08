@@ -26,8 +26,8 @@
         <item>Venezuela</item>
     </string-array>
     <string name="ciudad">Ciudad</string>
-    <string name="direccion">Dirección</string>
     <string name="siguiente">Siguiente</string>
+    <string name="direccion">Dirección</string>
     <string name="info_de_contacto">Información de Contacto</string>
     <string-array name="ciudades_arrays">
         <item>Bogotá</item>
