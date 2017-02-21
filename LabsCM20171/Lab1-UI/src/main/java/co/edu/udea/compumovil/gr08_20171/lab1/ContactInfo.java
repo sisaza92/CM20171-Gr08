@@ -1,38 +1,61 @@
 package co.edu.udea.compumovil.gr08_20171.lab1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
 public class ContactInfo extends AppCompatActivity {
 
+    EditText telefonoInfoContact,correoInfoContact,direccionInfoContact;
+    AutoCompleteTextView autoCompletePaises, autoCompleteCiudades;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_info);
 
-        // Get a reference to the AutoCompleteTextView in the layout
-        AutoCompleteTextView TextViewPais = (AutoCompleteTextView) findViewById(R.id.AutoCompletePaises);
+        telefonoInfoContact = (EditText)findViewById(R.id.telefonoInfoContact);
+        correoInfoContact = (EditText)findViewById(R.id.correoInfoContact);
+        direccionInfoContact = (EditText)findViewById(R.id.direccionInfoContact);
+        autoCompletePaises = (AutoCompleteTextView) findViewById(R.id.AutoCompletePaises);
+        autoCompleteCiudades = (AutoCompleteTextView) findViewById(R.id.AutoCompleteCiudades);
 
         // Get the string array
         String[] paises = getResources().getStringArray(R.array.paises_arrays);
-
         // Create the adapter and set it to the AutoCompleteTextView
-        ArrayAdapter<String> adapterPais =
-                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, paises);
-        TextViewPais.setAdapter(adapterPais);
-
-        // Get a reference to the AutoCompleteTextView in the layout
-        AutoCompleteTextView TextViewCiudad = (AutoCompleteTextView) findViewById(R.id.AutoCompleteCiudades);
+        ArrayAdapter<String> adapterPais = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, paises);
+        autoCompletePaises.setAdapter(adapterPais);
 
         // Get the string array
         String[] ciudades = getResources().getStringArray(R.array.ciudades_arrays);
-
         // Create the adapter and set it to the AutoCompleteTextView
-        ArrayAdapter<String> adapterCiudad =
-                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ciudades);
-        TextViewCiudad.setAdapter(adapterCiudad);
+        ArrayAdapter<String> adapterCiudad = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ciudades);
+        autoCompleteCiudades.setAdapter(adapterCiudad);
+    }
+
+    /**
+     * Método ejecutado por el boton siguiente de la actividad y
+     * que se encarga de recopilar los datos y lanzar la proxima
+     * actividad.
+     * @param view parámetro requerido para llamar el método a travéz del onClick en el XML.
+     */
+    public void showNextActivity(View view){
+
+        Bundle datos = getIntent().getBundleExtra("datos");
+
+        datos.putString("telefono", telefonoInfoContact.getText().toString());
+        datos.putString("correo", correoInfoContact.getText().toString());
+        datos.putString("ciudad", autoCompleteCiudades.getText().toString());
+        datos.putString("pais", autoCompletePaises.toString());
+        datos.putString("direccion", direccionInfoContact.toString());
+
+        Intent otherInfo = new Intent(view.getContext(),OtherInfo.class);
+        otherInfo.putExtra("datos",datos);
+        startActivity(otherInfo);
+
     }
 }
