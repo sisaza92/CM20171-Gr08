@@ -24,7 +24,7 @@
             android:label="Información de Contacto" />
         <activity
             android:name=".activity.OtherInfo"
-            android:label="Información Complementaria"
+            android:label="@string/info_other"
             android:windowSoftInputMode="adjustPan"/>
     </application>
 

@@ -151,4 +151,9 @@
         android:layout_gravity="right"
         android:onClick="mostrarInformacion"/>
 
+    <TextView
+        android:id="@+id/tvResumen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </LinearLayout>

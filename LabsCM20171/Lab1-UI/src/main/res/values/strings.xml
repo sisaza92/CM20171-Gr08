@@ -32,5 +32,6 @@
     <string name="cantar">Cantar</string>
     <string name="nadar">Nadar</string>
     <string name="mostrar">Mostrar</string>
+    <string name="info_other">Información Complementaria</string>
 
 </resources>
