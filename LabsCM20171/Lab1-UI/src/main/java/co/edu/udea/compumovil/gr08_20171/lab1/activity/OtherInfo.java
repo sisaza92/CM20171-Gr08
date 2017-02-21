@@ -23,7 +23,30 @@ public class OtherInfo extends AppCompatActivity {
 
         Bundle datos = getIntent().getBundleExtra("datos");
 
-        tvResumen.setText(datos.toString());
+        String nombres = datos.getString("nombres");
+        String apellidos = datos.getString("apellidos");
+        String sexo = datos.getString("sexo");
+        String fechaNaci = datos.getString("fechaNaci");
+        String gradoEscolar = datos.getString("grado");
+        String telefono = datos.getString("telefono");
+        String correo = datos.getString("correo");
+        String pais = datos.getString("pais");
+        String ciudad = datos.getString("ciudad");
+        String direccion = datos.getString("direccion");
+
+
+        tvResumen.setText(
+                "Nombres:"+nombres+
+                        "\nApellidos: "+apellidos+
+                        "\nSexo: "+sexo+
+                        "\nFecha de Nacimiento: "+fechaNaci+
+                        "\nGrado de Escolaridad: "+gradoEscolar+
+                        "\nTeléfono: "+telefono+
+                        "\nCorreo: "+correo+
+                        "\nPaís: "+pais+
+                        "\nCiudad: "+ciudad+
+                        "\nDirección: "+direccion
+        );
 
     }
 }

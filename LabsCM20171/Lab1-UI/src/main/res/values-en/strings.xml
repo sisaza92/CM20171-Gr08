@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LabsCM20171</string>
+    <string name="apellidos">Last Name</string>
+    <string name="bailar">Dancing</string>
+    <string name="cambiar">Change</string>
+    <string name="cantar">Singing</string>
+    <string name="ciudad">City</string>
+    <string name="correo">email</string>
+    <string name="direccion">Address</string>
+    <string name="fechaNaci">Birthdate</string>
+    <string name="gradoEscol">School Grade</string>
+    <string name="hombre">Male</string>
+    <string name="info_de_contacto">Contact Information</string>
+    <string name="info_other">Additional Information</string>
+    <string name="info_personal">Personal Information</string>
+    <string name="leer">Reading</string>
+    <string name="mostrar">Show Summary</string>
+    <string name="mujer">Female</string>
+    <string name="nadar">Swimming</string>
+    <string name="nombres">Name</string>
+    <string name="pais">Country</string>
+    <string name="pasatiempos">Hobbies</string>
+    <string name="sexo">Sex</string>
+    <string name="siguiente">Next</string>
+    <string name="telefono">Telephone</string>
+    <string name="verTv">Watching TV</string>
+</resources>
