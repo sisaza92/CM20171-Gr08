@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -38,6 +39,8 @@ public class PersonalInfo extends AppCompatActivity implements DatePickerDialog.
         input_apellidos = (EditText) findViewById(R.id.input_apellidos);
         rgSexo = (RadioGroup) findViewById(R.id.rgSexo);
         sprGradoEscolaridad = (Spinner) findViewById(R.id.sprGradoEscolaridad);
+        sprGradoEscolaridad.setPrompt(getResources().getString(R.string.siguiente));
+        sprGradoEscolaridad.setSelection(-1);
     }
 
     /**
@@ -59,20 +62,21 @@ public class PersonalInfo extends AppCompatActivity implements DatePickerDialog.
      */
     public void showNextActivity(View view){
 
-        Bundle datos = new Bundle();
+        if (validarCampos()){
+            Bundle datos = new Bundle();
 
-        datos.putString("nombres", input_nombres.getText().toString());
-        datos.putString("apellidos", input_apellidos.getText().toString());
+            datos.putString("nombres", input_nombres.getText().toString());
+            datos.putString("apellidos", input_apellidos.getText().toString());
 
-        RadioButton rbChecked = (RadioButton) findViewById(rgSexo.getCheckedRadioButtonId());
-        datos.putString("sexo", rbChecked.getText().toString());
-        datos.putString("fechaNaci",fechaNaci.toString());
-        datos.putString("grado", sprGradoEscolaridad.getSelectedItem().toString());
+            RadioButton rbChecked = (RadioButton) findViewById(rgSexo.getCheckedRadioButtonId());
+            datos.putString("sexo", rbChecked.getText().toString());
+            datos.putString("fechaNaci",fechaNaci.toString());
+            datos.putString("grado", sprGradoEscolaridad.getSelectedItem().toString());
 
-        Intent otherInfo = new Intent(view.getContext(),ContactInfo.class);
-        otherInfo.putExtra("datos",datos);
-        startActivity(otherInfo);
-
+            Intent otherInfo = new Intent(view.getContext(),ContactInfo.class);
+            otherInfo.putExtra("datos",datos);
+            startActivity(otherInfo);
+        }
     }
 
     /**
@@ -86,5 +90,26 @@ public class PersonalInfo extends AppCompatActivity implements DatePickerDialog.
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         fechaNaci = new Date(year,month,dayOfMonth);
+    }
+
+    /**
+     * Método para validar los campos de la actividad.
+     * @return true si la todos los campos se encuentran bien
+     * false de lo contrario.
+     */
+    private boolean validarCampos(){
+        if (input_nombres.getText().length() == 0){
+            input_nombres.setError(getString(R.string.error_nombre));
+            return false;
+        }
+        if(input_apellidos.getText().length() == 0){
+            input_apellidos.setError(getString(R.string.error_apellidos));
+            return false;
+        }
+        if(fechaNaci==null){
+            ((Button)findViewById(R.id.btnFecha)).setError(getString(R.string.error_fecha));
+            return false;
+        }
+        return true;
     }
 }

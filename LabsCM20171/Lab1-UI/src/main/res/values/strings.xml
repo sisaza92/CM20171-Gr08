@@ -65,6 +65,12 @@
     <string name="ciudad">Ciudad</string>
     <string name="direccion">Dirección</string>
     <string name="info_de_contacto">Información de Contacto</string>
+    <string name="error_telefono">Debes Poner un Telefono</string>
+    <string name="error_pais">Selecciona un País</string>
+    <string name="error_ciudad">Selecciona una ciudad</string>
+    <string name="error_nombre">Debes Poner tu Nombre</string>
+    <string name="error_apellidos">Debes poner tus Apellidos</string>
+    <string name="error_fecha">Debes seleccionar tu fecha de Nacimiento</string>
     <string-array name="ciudades_arrays">
         <item>Bogotá</item>
         <item>Medellín</item>
